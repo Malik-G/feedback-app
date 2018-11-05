@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 router.get('/results', (req, res) => {
-   pool.query('SELECT * from "feedback";')
+   pool.query('SELECT * from feedback;')
       .then((result) => {
          res.send(result.rows);
       })

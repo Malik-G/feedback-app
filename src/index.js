@@ -37,7 +37,7 @@ const commentsReducer = (state = [], action) => {
 
 const resultsReducer = (state = [], action) => {
    if (action.type === 'RESULTS') {
-      state = [...state, action.payload]
+      state = action.payload
   }
   return state;
 }

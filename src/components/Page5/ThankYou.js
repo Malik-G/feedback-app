@@ -54,7 +54,7 @@ class ThankYou extends Component {
         <p>Thank You!</p>
         <br></br>
         <Button onClick={this.goToPage1}>Home</Button>
-        <Button onClick={this.goToPage6}>Admin</Button>
+        <Button onClick={this.goToAdmin}>Admin</Button>
       </div>
     );
   }
