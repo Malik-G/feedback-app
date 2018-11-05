@@ -10,6 +10,24 @@ import TableRow from '@material-ui/core/TableRow';
 import './Results.css';
 
 class Results extends Component {
+
+  componentDidMount() {
+    this.getResults();
+  }
+
+  getResults = () => {
+    axios({
+      method: 'GET',
+      url: '/feedback/results'
+    })
+    .then((response) => {
+      console.log('GET request successful!', response.data);
+      this.props.dispatch({type: 'RESULTS', payload: response.data})
+    })
+    .catch((error) => {
+      console.log('GET request unsuccessful', error);
+    })
+  }
    
    render() {
     return (
@@ -22,6 +40,7 @@ class Results extends Component {
                       <TableCell>Comprehension</TableCell>
                       <TableCell>Support</TableCell>
                       <TableCell>Comments</TableCell>
+                      <TableCell>Flagged</TableCell>
                       <TableCell>Delete</TableCell>
                   </TableRow>
               </TableHead>

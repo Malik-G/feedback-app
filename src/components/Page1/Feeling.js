@@ -2,28 +2,33 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import RadioButtons from '../RadioButtons/RadioButtons';
 import './Feeling.css';
 
 class Feeling extends Component {
-  
-   goToPage2 = () => {
-      this.props.history.push('/understanding');
+
+   nextPage = (rating) => {
+      // Dispatch to feelingReducer
+      this.props.dispatch({
+         type: 'FEELING_RATING',
+         payload: rating
+      })
+      // this.setState ({rating: 0 }); // reset local state for the next surveyee
+      this.props.history.push('/understanding'); // go to page 2
    }
    
    render() {
     return (
-      <div className="feeling">
+      <div >
         <p>How are you feeling today?</p>
-        <input type="text" placeholder="On a scale of 1-5"/>
-        <br></br>
-        <button onClick={this.goToPage2}>Next</button>
+        <RadioButtons nextPage={this.nextPage}/>
       </div>
     );
   }
 }
 
-const mapReduxStateToProps = (reduxState) => {
-   return {reduxState};
-}
+// const mapReduxStateToProps = (reduxState) => {
+//    return {reduxState};
+// }
 
-export default withRouter(connect(mapReduxStateToProps)(Feeling));
+export default withRouter(connect()(Feeling));

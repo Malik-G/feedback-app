@@ -6,20 +6,61 @@ import {Provider} from 'react-redux';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import logger from 'redux-logger';
 
-const customerInfoReducer = (state = {}, action) => {
-   if (action.type === 'ADD_CUSTOMER') {
-       state = action.payload;
+const feelingReducer = (state = [], action) => {
+   if (action.type === 'FEELING_RATING') {
+       state = [action.payload]
+   }
+   return state;
+}
+
+const understandingReducer = (state = [], action) => {
+   if (action.type === 'UNDERSTANDING_RATING') {
+       state = [action.payload]
+   }
+   return state;
+}
+
+const suppportReducer = (state = [], action) => {
+   if (action.type === 'SUPPORT_RATING') {
+       state = [action.payload]
+   }
+   return state;
+}
+
+const commentsReducer = (state = [], action) => {
+   if (action.type === 'COMMENTS') {
+      state = [action.payload]
+  }
+  return state;
+}
+
+
+const resultsReducer = (state = [], action) => {
+   if (action.type === 'RESULTS') {
+      state = [...state, action.payload]
+  }
+  return state;
+}
+
+const flaggedReducer = (state = [], action) => {
+   if (action.type === 'FLAGGED') {
+       state = [action.payload]
    }
    return state;
 }
 
 const reduxStore = createStore(
    combineReducers({
-      customerInfoReducer
+      feelingReducer,
+      understandingReducer,
+      suppportReducer,
+      commentsReducer,
+      resultsReducer,
+      flaggedReducer
    }),
-   applyMiddleware(logger) 
+   applyMiddleware(logger)
 )
 
 
-ReactDOM.render(<Provider store={reduxStore} ><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={reduxStore}><App/></Provider>, document.getElementById('root'));
 registerServiceWorker();
