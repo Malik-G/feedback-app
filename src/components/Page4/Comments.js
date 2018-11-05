@@ -7,7 +7,7 @@ import './Comments.css';
 class Comments extends Component {
   
    state = {
-      comments: ""
+      comments: ''
    }
 
    handleChange = event => {
@@ -18,7 +18,7 @@ class Comments extends Component {
       this.props.dispatch({type: 'COMMENTS',
          payload:this.state.comments
       })
-      this.setState ({comments: "" }); // reset local state for the next surveyee
+      this.setState ({comments: '' }); // reset local state for the next surveyee
       this.props.history.push('/thank-you'); // go to page 4
    }
    

@@ -20,7 +20,7 @@ const understandingReducer = (state = [], action) => {
    return state;
 }
 
-const suppportReducer = (state = [], action) => {
+const supportReducer = (state = [], action) => {
    if (action.type === 'SUPPORT_RATING') {
        state = [action.payload]
    }
@@ -53,7 +53,7 @@ const reduxStore = createStore(
    combineReducers({
       feelingReducer,
       understandingReducer,
-      suppportReducer,
+      supportReducer,
       commentsReducer,
       resultsReducer,
       flaggedReducer

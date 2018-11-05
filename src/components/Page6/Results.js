@@ -36,11 +36,11 @@ class Results extends Component {
           <Table className="resultsTable">
               <TableHead>
                   <TableRow>
+                      
                       <TableCell>Feeling</TableCell>
                       <TableCell>Comprehension</TableCell>
                       <TableCell>Support</TableCell>
                       <TableCell>Comments</TableCell>
-                      <TableCell>Flagged</TableCell>
                       <TableCell>Delete</TableCell>
                   </TableRow>
               </TableHead>
