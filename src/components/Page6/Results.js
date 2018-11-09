@@ -18,7 +18,6 @@ class Results extends Component {
   }
 
   getResults = () => {
-  
     axios({
       method: 'GET',
       url: '/feedback/results'
@@ -30,21 +29,34 @@ class Results extends Component {
     .catch((error) => {
       console.log('GET request unsuccessful', error);
     })
-  
+  }
+
+  deleteResult = (id) => {
+    return (event) => {
+      event.preventDefault();
+      axios({
+        method: 'DELETE',
+        url: `/feedback/delete/${id}`
+      })
+      .then((response) => {
+        console.log('DELETE request successful!', response.data);
+        this.getResults();
+      })
+      .catch((error) => {
+        console.log('DELETE request unsuccessful', error);
+      })
+    }
   }
    
    render() {
     
-   
+    
     
     return (
       <div className="results">
-       <pre>
-       {JSON.stringify(this.props.reduxState.resultsReducer)}
-       </pre>
         <section>
-          <Table className="resultsTable">
-              <TableHead>
+          <Table >
+              <TableHead className="resultsTableHead">
                   <TableRow>
                       <TableCell>Feeling</TableCell>
                       <TableCell>Comprehension</TableCell>
@@ -53,16 +65,16 @@ class Results extends Component {
                       <TableCell>Delete</TableCell>
                   </TableRow>
               </TableHead>
-              <TableBody>
+              <TableBody className="resultsTableBody">
                 {this.props.reduxState.resultsReducer.map( feedback =>
                   <TableRow key={feedback.id}>
-                      <TableCell><p>{feedback.feeling}</p></TableCell>
-                      <TableCell><p>{feedback.understanding}</p></TableCell>
-                      <TableCell><p>{feedback.support}</p></TableCell>
-                      <TableCell><p>{feedback.comments}</p></TableCell>
-                      <TableCell><p><Button>Delete
-                        <DeleteIcon></DeleteIcon></Button></p>
-                        </TableCell>
+                      <TableCell>{feedback.feeling}</TableCell>
+                      <TableCell>{feedback.understanding}</TableCell>
+                      <TableCell>{feedback.support}</TableCell>
+                      <TableCell>{feedback.comments}</TableCell>
+                      <TableCell>
+                        <Button onClick={this.deleteResult(feedback.id)} >Delete<DeleteIcon></DeleteIcon></Button>
+                      </TableCell>
                   </TableRow>
                 )}
               </TableBody>

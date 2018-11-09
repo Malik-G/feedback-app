@@ -1,4 +1,8 @@
-.header {
-   text-align: center;
 
+.header {
+   height: 80px;
+   text-align: "center";
+   font-family: 'Lalezar';
+   background-color: rgb(60,179,113);
+   font-size: 20px;
 }

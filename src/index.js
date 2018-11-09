@@ -5,6 +5,10 @@ import App from './components/App/App';
 import {Provider} from 'react-redux';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import logger from 'redux-logger';
+import 'typeface-mukta-mahee';
+import 'typeface-open-sans';
+import 'typeface-lalezar';
+import 'typeface-economica';
 
 const feelingReducer = (state = [], action) => {
    if (action.type === 'FEELING_RATING') {

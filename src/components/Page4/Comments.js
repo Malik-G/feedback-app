@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
 import './Comments.css';
 
 class Comments extends Component {
@@ -28,7 +29,9 @@ class Comments extends Component {
         <p>Feel free to add any additional comments!</p>
         <textarea type="text" className="textArea" onChange={this.handleChange} value={this.state.comments} placeholder="Enter text"></textarea>
         <br></br>
-        <button onClick={this.sendToRouter}>Next</button>
+        <Button onClick={this.sendToRouter} variant="contained">
+          Next <img src="images/next.png" alt="Next symbol"></img>
+        </Button>
       </div>
     );
   }

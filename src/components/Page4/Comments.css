@@ -2,4 +2,10 @@ textarea {
    height: 100px;
    width: 300px;
    margin: 20px auto;
+   font-family: 'Economica';
+   font-size: 20px;
+}
+
+.nextPageBtn {
+   margin-top: 40px;
 }
