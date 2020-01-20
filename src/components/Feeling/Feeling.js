@@ -14,7 +14,7 @@ class Feeling extends Component {
          payload: rating
       })
       // this.setState ({rating: 0 }); // reset local state for the next surveyee
-      this.props.history.push('/understanding'); // go to page 2
+      this.props.history.push('/understanding');
    }
    
    render() {

@@ -29,7 +29,6 @@ class RadioButtons extends Component {
    render() {
     return (
       <div className="radioButtons">
-         <label htmlFor="radio1">1=Poor</label>
          <Radio
             checked={this.state.rating === "1"}
             onChange={this.handleChange}
@@ -38,7 +37,8 @@ class RadioButtons extends Component {
             color="primary"
             value="1"
          />
-         <label htmlFor="radio2">2=Meh...</label>
+			 <label htmlFor="radio1">1=Poor</label>
+         
          <Radio
             checked={this.state.rating === "2"}
             onChange={this.handleChange}
@@ -47,7 +47,7 @@ class RadioButtons extends Component {
             color="primary"
             value="2"
          />
-         <label htmlFor="radio3">3=Average</label>
+			 <label htmlFor="radio2">2=Meh...</label>
          <Radio
             checked={this.state.rating === "3"}
             onChange={this.handleChange}
@@ -56,7 +56,8 @@ class RadioButtons extends Component {
             color="default"
             value="3"
          />
-         <label htmlFor="radio4">4=Good</label>
+			 <label htmlFor="radio3">3=Average</label>
+
          <Radio
             checked={this.state.rating === "4"}
             onChange={this.handleChange}
@@ -65,7 +66,9 @@ class RadioButtons extends Component {
             color="secondary"
             value="4"
          />
-         <label htmlFor="radio5">5=Excellent</label>
+			 <label htmlFor="radio4">4=Good</label>
+
+         
          <Radio
             checked={this.state.rating === "5"}
             onChange={this.handleChange}
@@ -74,6 +77,7 @@ class RadioButtons extends Component {
             color="secondary"
             value="5"
          />
+			 <label htmlFor="radio5">5=Excellent</label>
          <br></br>
          <div className="nextPageBtn">
           <Button onClick={this.sendToRouter} variant="contained">
